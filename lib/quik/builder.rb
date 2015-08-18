@@ -78,7 +78,7 @@ class Builder
       ## do nothing; dry run
     else
       if @pak
-        unzip_dir = "./o/#{name}"
+        unzip_dir = "./#{name}"
         ## step 1: unzip templates
         @pak.unzip( unzip_dir )
         ## step 2: merge templates (using hash/config settings)
