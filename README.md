@@ -83,8 +83,9 @@ folder.
 
 **More Quick Starter Wizard Scripts**
 
-See the [Rubyref Scripts](https://github.com/rubyref/scripts) library.
+For more ruby quick starter scripts, see the [Rubyref Scripts](https://github.com/rubyref/scripts) library.
 
+For static site (e.g. jekyll) quick starter scripts, see the  [Mr. Hyde's Scripts](https://github.com/mrhydescripts/scripts) library.
 
 
 
