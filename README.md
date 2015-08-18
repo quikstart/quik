@@ -12,12 +12,13 @@ The quick gem includes a command line tool that lets you
 run quick starter template scripts. Try:
 
 ```
-$ quick --help      # or
+$ quik --help      # or
 $ qk -h
 ```
 
 Resulting in:
 
+```
 NAME
     qk/quik - ruby quick starter template script wizard .:. the missing code generator
 
