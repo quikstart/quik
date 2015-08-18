@@ -49,6 +49,16 @@ class Package
     unzip_archive( src, dest_unzip )
   end
 
+
+  def merge( root_dir, hash )
+    ## replace/merge variable in files
+    Dir.chdir( "#{root_dir}" ) do
+      files = Dir[ '**/*' ]   ## get all files
+      pp files
+    end
+  end
+
+
 private
   def fetch_archive( src, dest )
     ## step 1 - fetch archive
