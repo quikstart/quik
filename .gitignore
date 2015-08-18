@@ -5,3 +5,8 @@ doc/
 # ignore jekyll generated output
 site/_site/
 
+###
+# for testing downloading and unzipping packages ignore
+
+o/
+*.zip

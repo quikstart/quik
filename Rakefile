@@ -19,7 +19,8 @@ Hoe.spec 'quik' do
 
   self.extra_deps = [
     ['logutils'],
-    ['fetcher']
+    ['fetcher'],
+    ['rubyzip'],
   ]
 
   self.licenses = ['Public Domain']
