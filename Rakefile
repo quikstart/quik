@@ -5,7 +5,7 @@ Hoe.spec 'quik' do
 
   self.version = Quik::VERSION
 
-  self.summary = 'quik'
+  self.summary = 'quik - ruby quick starter template script wizard .:. the missing code generator'
   self.description = summary
 
   self.urls    = ['https://github.com/rubylibs/quik']
@@ -19,8 +19,10 @@ Hoe.spec 'quik' do
 
   self.extra_deps = [
     ['logutils'],
+    ['textutils'],
     ['fetcher'],
     ['rubyzip'],
+    ['gli'],
   ]
 
   self.licenses = ['Public Domain']
