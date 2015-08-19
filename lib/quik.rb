@@ -22,7 +22,7 @@ require 'quik/merger'
 require 'quik/config'
 require 'quik/wizard'
 require 'quik/builder'
-
+require 'quik/colors'
 
 
 require 'quik/cli/opts'
