@@ -66,6 +66,8 @@ class Merger
            puts "  *** move file #{old_name} => #{new_name} (#{root_dir})"
            src_path  = "#{root_dir}/#{old_name}"
            dest_path = "#{root_dir}/#{new_name}"
+           ## note: make sure subpath exists (e.g. replacement might include new (sub)dirs too)
+           FileUtils.mkdir_p( File.dirname( dest_path ), flags )  unless Dir.exist?( File.dirname( dest_path ))
            FileUtils.mv( src_path, dest_path, flags )
         end
       end
@@ -87,6 +89,8 @@ class Merger
            puts "  *** move dir #{old_name} => #{new_name} (#{root_dir})"
            src_path  = "#{root_dir}/#{old_name}"
            dest_path = "#{root_dir}/#{new_name}"
+           ## note: make sure subpath exists (e.g. replacement might include new (sub)dirs too)
+           FileUtils.mkdir_p( File.dirname( dest_path ), flags )  unless Dir.exist?( File.dirname( dest_path ))
            FileUtils.mv( src_path, dest_path, flags )
         end
       end
@@ -132,7 +136,7 @@ class Merger
           dest_path = "#{dest_root}/#{relative_path}"
           ## make sure dest_path exists
           dest_dir = File.dirname( dest_path )
-          FileUtils.mkdir_p( dest_dir ) unless Dir.exists?( dest_dir )
+          FileUtils.mkdir_p( dest_dir ) unless Dir.exist?( dest_dir )
         else
           dest_root = root_dir
           dest_path = "#{dest_root}/#{relative_path}"
