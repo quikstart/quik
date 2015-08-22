@@ -161,7 +161,8 @@ class Merger
     ## e.g. allow
     ##  __filename__  or
     ##  $filename$   for now
-    path.gsub( /(__|\$)([a-z]+)\1/i ) do |_|
+    ##   note: allow underline too  e.g $file_name$ etc.
+    path.gsub( /(__|\$)([a-z_]+)\1/i ) do |_|
       key   = $2.to_s
       value = hash[ key ]
       puts "   [path] replacing #{key} w/ >#{value}< in (#{path})"
@@ -176,10 +177,11 @@ class Merger
     ##   e.g. hello$test$ will not match only "free-standing $test
     ##  or in quote e.g. "$test$"
     ##  e.g. no letters or digits allowed before or after $ to match
+    ##  note: allow underline too e.g. $test_klass$ etc.
 
     ## pp text
 
-    text.gsub( /\B\$([a-z]+)\$\B/i ) do |_|
+    text.gsub( /\B\$([a-z_]+)\$\B/i ) do |_|
       key   = $1.to_s
       value = hash[ key ]
       puts "   [text] replacing #{key} w/ >#{value}<"

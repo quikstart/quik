@@ -21,6 +21,10 @@ class TestConfig < MiniTest::Test
     c.mrhyde.name         = 'name'
     c.mrhyde.theme        = 'theme'
     c.mrhyde.meta.info    = 'test nested nested value'
+    
+    ## test self reference in value assignment e.g.
+    c.test.title  = c.title
+    c.test.name   = c.author.name
 
     pp c.to_h
 
