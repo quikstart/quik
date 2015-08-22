@@ -8,6 +8,7 @@ lib/quik.rb
 lib/quik/builder.rb
 lib/quik/cli/main.rb
 lib/quik/cli/opts.rb
+lib/quik/colors.rb
 lib/quik/config.rb
 lib/quik/merger.rb
 lib/quik/package.rb
@@ -20,5 +21,8 @@ test/data/gem-starter-template/lib/__filename__/$filename$.rb
 test/data/gem-starter-template/lib/__filename__/__filename__/test.rb
 test/data/gem-starter-template/lib/__filename__/version.rb
 test/helper.rb
+test/test_colors.rb
+test/test_config.rb
 test/test_merger.rb
 test/test_package.rb
+test/test_wizard.rb

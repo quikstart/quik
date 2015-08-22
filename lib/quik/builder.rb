@@ -47,6 +47,8 @@ class Builder
       # do nothing; dry run
     else
       @pak = Package.new( key )
+      
+      puts "GET #{@pak.remote_zip_url}".bold.green   ## output network access in green bold
       @pak.download
       ##  pak.unzip( "#{@output_dir}/#{key}" )
     end

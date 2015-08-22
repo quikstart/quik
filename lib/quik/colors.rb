@@ -31,12 +31,23 @@ class String
   end
 
 
-  def red()        colorize(31); end
-  def green()      colorize(32); end
-  def yellow()     colorize(33); end   ## brown ??
-  def blue()       colorize(34); end
-  def pink()       colorize(35); end   ## magenta ??
-  def light_blue() colorize(36); end   ## cyan ?? 
+  def red()      colorize(31); end
+  def green()    colorize(32); end
+  def yellow()   colorize(33); end   ## note: more brown-ish (if not used w/ bold/bright mode) ??
+  def blue()     colorize(34); end
+  def magenta()  colorize(35); end   ## pink ??
+  def cyan()     colorize(36); end   ## light blue ?? 
+
+  def bold()     colorize(1); end    ## just use 0 clear for now; instead of BOLD_OFF (22) code; use bright as an alias??
+
+private
+  def colorize(code)
+    if self.class.use_colors?
+      "\e[#{code}m#{self}\e[0m"
+    else
+      self
+    end
+  end
 
 
    ## todo - add modes e.g. bold/underscore/etc.
@@ -132,14 +143,5 @@ e.g. for now colors can NOT get nested
       bold.red etc.
 =end
 
-
-private
-  def colorize(code)
-    if String.use_colors?
-      "\e[#{code}m#{self}\e[0m"
-    else
-      self
-    end
-  end
 
 end # class String

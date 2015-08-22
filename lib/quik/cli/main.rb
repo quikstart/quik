@@ -58,6 +58,9 @@ def self.fetch_script( name )
   else  ## fetch remote script
     url = "https://github.com/rubyref/scripts/raw/master/#{name}.rb"
     ## assume utf8 text encoding for now
+
+    puts "GET #{url}".bold.green   ## output network access in green bold
+
     worker = Fetcher::Worker.new
     text = worker.read_utf8!( url )
   end

@@ -36,7 +36,7 @@ class Package
     dest_zip = local_zip_path
 
     ## make sure dest folder exists
-    FileUtils.mkdir_p( local_zip_dir ) unless Dir.exists?( local_zip_dir )
+    FileUtils.mkdir_p( local_zip_dir ) unless Dir.exist?( local_zip_dir )
     fetch_archive( src, dest_zip )
   end
 
@@ -45,7 +45,7 @@ class Package
     dest_unzip = unzip_dir ## local_unzip_dir
 
     ## check if folders exists? if not create folder in path
-    FileUtils.mkdir_p( dest_unzip ) unless Dir.exists?( dest_unzip )
+    FileUtils.mkdir_p( dest_unzip ) unless Dir.exist?( dest_unzip )
     unzip_archive( src, dest_unzip )
   end
 
@@ -75,6 +75,12 @@ private
     # e.g
     # !/starter-gh-pages/_layouts/ becomes
     # !/_layouts/ etc.
+    
+    ##
+    ## note:
+    ##  skip all files in "root" folder
+    ##   only unzip files in /template(s)/ folder
+
     Zip::File.open( src ) do |zipfile|
       zipfile.each do |file|
         if file.directory?
@@ -83,10 +89,20 @@ private
           ### fix: only cut-off if master or gh-pages ???
           ##  check if others include root folder?
           name = file.name[ file.name.index('/')+1..-1] ## cut-off root/first path entry
-          path = File.join( dest, name)
-          puts " unzip file zip entry - #{file.name} to #{path}"
-          FileUtils.mkdir_p( File.dirname( path) )
-          zipfile.extract(file, path) unless File.exist?(path)
+
+          ## note: name must start w/ template/ or templates/
+          ##   otherwise gets skipped as "top level" docu
+          if name =~ /^template(s)?\//
+            name = name[ name.index('/')+1..-1] ## cut-off first path entry (e.g. template(s)/)
+
+            path = File.join( dest, name)
+            puts " unzip file zip entry - #{file.name} to #{path}"
+            FileUtils.mkdir_p( File.dirname( path) )
+            ## todo/fix: check - always overwrite if file exists - why? why not??
+            zipfile.extract(file, path) unless File.exist?(path)
+          else
+            puts " skip top-level docu file entry - #{file.name}"
+          end
         end
       end
     end
