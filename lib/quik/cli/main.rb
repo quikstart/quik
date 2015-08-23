@@ -47,6 +47,18 @@ desc '(Debug) Dry run; run script in simulation for testing'
 switch [:test, :dry_run], negatable: false
 
 
+def self.fetch_catalog
+  ## scripts_dir = "#{Quik.root}/test/data"
+  ## catalog    = Catalog.new( "#{scripts_dir}/scripts.yml" )
+
+  url = "https://github.com/rubyref/scripts/raw/master/scripts.yml"
+
+  puts "GET #{url}".bold.green   ## output network access in green bold
+
+  catalog = Catalog.from_url( url )
+  catalog
+end
+
 def self.fetch_script( name )
 
   ## first try local version in working folder
@@ -67,6 +79,20 @@ def self.fetch_script( name )
 
   text
 end
+
+
+
+desc "List ruby quick starter scripts"
+arg_name 'QUERY'   # optional search query/filter
+command [:list,:ls,:l] do |c|
+
+  c.action do |g,o,args|
+    ## read in scripts diretory
+    catalog = fetch_catalog
+    catalog.list( args[0] )   ## note: pass in filter e.g. args[0]; may be nil (no filter)
+    puts 'Done.'
+  end # action
+end  # command list
 
 
 desc "Run ruby quick starter script"

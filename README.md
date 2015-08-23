@@ -26,7 +26,7 @@ SYNOPSIS
     quik [global options] command [command options] [arguments...]
 
 VERSION
-    0.1.0
+    0.3.0
 
 GLOBAL OPTIONS
     --help            - Show this message
@@ -35,16 +35,40 @@ GLOBAL OPTIONS
     --version         - Display the program version
 
 COMMANDS
-    new, n - Run ruby quick starter script
+    list, ls, l - List ruby quick starter scripts
+    new, n      - Run ruby quick starter script
 
-    help   - Shows a list of commands or help for one command
-    test   - (Debug) Test command suite
+    help        - Shows a list of commands or help for one command
+    test        - (Debug) Test command suite
 ```
 
 
 ### Commands
 
+[List Wizards](#list-wizard-command---list-ls-l) • 
 [New Wizard](#new-wizard-command---new-n)
+
+
+#### List Wizards Command - `list`, `ls`, `l`
+
+Use:
+
+```
+$ quik list    # or
+$ quik ls      # or
+$ quik l       # or
+$ qk l
+```
+
+Resulting in:
+
+```
+  1..gem        .:.  Gem Quick Starter Template
+  2..gem-hoe    .:.  Gem Quick Starter Template (Hoe Classic Edition)
+  3..sinatra    .:.  Sinatra Quick Starter Template
+...
+```
+
 
 #### New Wizard Command - `new`, `n`
 
@@ -83,7 +107,7 @@ folder.
 
 **More Quick Starter Wizard Scripts**
 
-For more ruby quick starter scripts, see the [Rubyref Scripts](https://github.com/rubyref/scripts) library.
+For more ruby quick starter scripts, see the [Rubyref's Scripts](https://github.com/rubyref/scripts) library.
 
 For static site (e.g. jekyll) quick starter scripts, see the  [Mr. Hyde's Scripts](https://github.com/mrhydescripts/scripts) library.
 

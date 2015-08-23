@@ -6,6 +6,7 @@ bin/qk
 bin/quik
 lib/quik.rb
 lib/quik/builder.rb
+lib/quik/catalog.rb
 lib/quik/cli/main.rb
 lib/quik/cli/opts.rb
 lib/quik/colors.rb

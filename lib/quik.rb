@@ -17,6 +17,7 @@ require 'gli'
 
 # our own code
 require 'quik/version'   # let version always go first
+require 'quik/catalog'
 require 'quik/package'
 require 'quik/merger'
 require 'quik/config'
