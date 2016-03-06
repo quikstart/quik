@@ -1,7 +1,7 @@
 # qk/quik - ruby quick starter template script wizard .:. the missing code generator
 
-* home  :: [github.com/rubylibs/quik](https://github.com/rubylibs/quik)
-* bugs  :: [github.com/rubylibs/quik/issues](https://github.com/rubylibs/quik/issues)
+* home  :: [github.com/quikstart/quik](https://github.com/quikstart/quik)
+* bugs  :: [github.com/quikstart/quik/issues](https://github.com/quikstart/quik/issues)
 * gem   :: [rubygems.org/gems/quik](https://rubygems.org/gems/quik)
 * rdoc  :: [rubydoc.info/gems/quik](http://rubydoc.info/gems/quik)
 
@@ -84,7 +84,7 @@ $ qk n gem
 ```
 
 This will download the `gem.rb` wizard script
-from the [Rubyref Scripts](https://github.com/rubyref/scripts) repo
+from the [Scripts](https://github.com/quikstart/scripts) repo
 and run through all steps e.g.:
 
 ```
@@ -107,7 +107,7 @@ folder.
 
 **More Quick Starter Wizard Scripts**
 
-For more ruby quick starter scripts, see the [Rubyref's Scripts](https://github.com/rubyref/scripts) library.
+For more ruby quick starter scripts, see the [Scripts](https://github.com/quikstart/scripts) library.
 
 For static site (e.g. jekyll) quick starter scripts, see the  [Mr. Hyde's Scripts](https://github.com/mrhydescripts/scripts) library.
 
