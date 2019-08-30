@@ -7,6 +7,7 @@
 ##       http://github.com/ssoroka/ansi
 ##       http://flori.github.com/term-ansicolor/
 ##       http://github.com/sickill/rainbow
+##       https://github.com/janlelis/paint
 
 
 ## move to core_ext.rb - why? why not??
