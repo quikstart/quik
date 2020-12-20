@@ -4,11 +4,14 @@
 require 'pp'
 require 'fileutils'
 require 'yaml'
+require 'json'
 require 'uri'
+require 'time'
+require 'date'
+
 
 # 3rd party libs/gems
 require 'fetcher'
-require 'textutils' ## used for File.read_utf8
 
 ## more 3rd party gems
 require 'zip' # use $ gem install rubyzip

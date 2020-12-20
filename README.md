@@ -26,7 +26,7 @@ SYNOPSIS
     quik [global options] command [command options] [arguments...]
 
 VERSION
-    0.3.0
+    1.0.0
 
 GLOBAL OPTIONS
     --help            - Show this message
@@ -45,7 +45,7 @@ COMMANDS
 
 ### Commands
 
-[List Wizards](#list-wizard-command---list-ls-l) • 
+[List Wizards](#list-wizard-command---list-ls-l) •
 [New Wizard](#new-wizard-command---new-n)
 
 

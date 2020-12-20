@@ -7,7 +7,7 @@ module Quik
 
 class Tool
   def initialize
-    LogUtils::Logger.root.level = :info   # set logging level to info 
+    LogUtils::Logger.root.level = :info   # set logging level to info
   end
 
   def run( args )
@@ -30,7 +30,7 @@ class Toolii
 
 
 logger = LogUtils::Logger.root
-opts   = Opts.new 
+opts   = Opts.new
 
 
 program_desc 'ruby quick starter template script wizard .:. the missing code generator'
@@ -51,13 +51,14 @@ def self.fetch_catalog
   ## scripts_dir = "#{Quik.root}/test/data"
   ## catalog    = Catalog.new( "#{scripts_dir}/scripts.yml" )
 
-  url = "https://github.com/rubyref/scripts/raw/master/scripts.yml"
+  url = "https://github.com/quikstart/scripts/raw/master/scripts.yml"
 
   puts "GET #{url}".bold.green   ## output network access in green bold
 
   catalog = Catalog.from_url( url )
   catalog
 end
+
 
 def self.fetch_script( name )
 
@@ -66,9 +67,9 @@ def self.fetch_script( name )
   text = ''
   local_script = "./#{name}.rb"
   if File.exist?( local_script )
-    text = File.read_utf8( local_script )
+    text = File.open( local_script, 'r:utf-8' ) { |f| f.read }
   else  ## fetch remote script
-    url = "https://github.com/rubyref/scripts/raw/master/#{name}.rb"
+    url = "https://github.com/quikstart/scripts/raw/master/#{name}.rb"
     ## assume utf8 text encoding for now
 
     puts "GET #{url}".bold.green   ## output network access in green bold
@@ -128,11 +129,11 @@ command :test do |c|
     pp o
     puts "g (#{g.class.name}):"
     pp g
-    
+
     LogUtils::Logger.root.debug 'test debug msg'
     LogUtils::Logger.root.info 'test info msg'
     LogUtils::Logger.root.warn 'test warn msg'
-    
+
     puts 'Done.'
   end
 end
@@ -149,7 +150,7 @@ pre do |g,c,o,args|
     LogUtils::Logger.root.level = :debug
   end
 
-  logger.debug "Executing #{c.name}"   
+  logger.debug "Executing #{c.name}"
   true
 end
 

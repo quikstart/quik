@@ -5,7 +5,7 @@ module Quik
 class Builder
 
   def self.load_file( path, opts={} )
-    code = File.read_utf8( path )
+    code = File.open( path, 'r:utf-8' ) { |f| f.read }
     self.load( code, opts )
   end
 
@@ -47,7 +47,7 @@ class Builder
       # do nothing; dry run
     else
       @pak = Package.new( key )
-      
+
       puts "GET #{@pak.remote_zip_url}".bold.green   ## output network access in green bold
       @pak.download
       ##  pak.unzip( "#{@output_dir}/#{key}" )
@@ -87,7 +87,7 @@ class Builder
         m = Quik::Merger.new
         m.merge( unzip_dir, h )
       end
-    end    
+    end
   end # method config
 
 

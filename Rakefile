@@ -5,21 +5,20 @@ Hoe.spec 'quik' do
 
   self.version = Quik::VERSION
 
-  self.summary = 'quik - ruby quick starter template script wizard .:. the missing code generator'
+  self.summary = 'qk/quik - ruby quick starter template script wizard .:. the missing code generator'
   self.description = summary
 
-  self.urls    = ['https://github.com/rubylibs/quik']
+  self.urls    = { home: 'https://github.com/quikstart/quik' }
 
   self.author  = 'Gerald Bauer'
   self.email   = 'ruby-talk@ruby-lang.org'
 
   # switch extension to .markdown for gihub formatting
   self.readme_file  = 'README.md'
-  self.history_file = 'HISTORY.md'
+  self.history_file = 'CHANGELOG.md'
 
   self.extra_deps = [
     ['logutils'],
-    ['textutils'],
     ['fetcher'],
     ['rubyzip'],
     ['gli'],
@@ -28,7 +27,7 @@ Hoe.spec 'quik' do
   self.licenses = ['Public Domain']
 
   self.spec_extras = {
-   required_ruby_version: '>= 1.9.2'
+   required_ruby_version: '>= 2.2.2'
   }
 
 end

@@ -12,7 +12,7 @@ class Catalog
 
   def self.from_file( path )
     ## read in themes catalog
-    text  = File.read( path )  ## fix: use File.read_utf8 ??
+    text  = File.open( path, 'r:utf-8' ) { |f| f.read }
     self.from_string( text )
   end
 
@@ -50,7 +50,7 @@ class Catalog
       end
     end
   end  # method filter
-  
+
 end # class Catalog
 
 end # module Quik

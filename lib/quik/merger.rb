@@ -125,10 +125,9 @@ class Merger
         end
 
         src_path = "#{root_dir}/#{relative_path}"
-        
+
         ## note: for now assume always assume text files/utf8
-        ##  fix: change to File.read_utf8 ??
-        old_text = File.read( src_path )
+        old_text = File.open( src_path, 'r:utf-8' ) { |f| f.read }
         new_text = merge_text( old_text, hash )
 
         if opts[:o]
