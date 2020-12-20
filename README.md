@@ -83,8 +83,8 @@ $ quik n gem      # or
 $ qk n gem
 ```
 
-This will download the `gem.rb` wizard script
-from the [Scripts](https://github.com/quikstart/scripts) repo
+This will download the [`quik.rb`](https://github.com/quikstart/gem-starter-template/blob/master/quik.rb) wizard script from the
+gem starter template repo
 and run through all steps e.g.:
 
 ```
@@ -95,8 +95,8 @@ Q: What's your gem's module? [Hola]: Hello
 
 Thanks! Ready-to-go. Stand back.
 
-  Downloading Rubyref Gem Starter Template...
-  Setting up Rubyref Starter Template...
+  Downloading Gem Starter Template...
+  Setting up Gem Starter Template...
   ...
 Done.
 ```
@@ -107,9 +107,11 @@ folder.
 
 **More Quick Starter Wizard Scripts**
 
-For more ruby quick starter scripts, see the [Scripts](https://github.com/quikstart/scripts) library.
+For more ruby quick starter scripts, see the [Scripts](https://github.com/quikstart/scripts)
+catalog / directory.
 
-For static site (e.g. jekyll) quick starter scripts, see the  [Mr. Hyde's Scripts](https://github.com/mrhydescripts/scripts) library.
+For static website (e.g. jekyll) quick starter scripts, see the  [Mr. Hyde's Scripts](https://github.com/mrhydescripts/scripts) catalog / directory.
+
 
 
 

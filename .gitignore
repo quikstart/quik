@@ -1,6 +1,11 @@
-# ignore generated folders 
+# ignore generated folders
 pkg/
 doc/
+
+## temp folders
+tmp/
+temp/
+
 
 # ignore jekyll generated output
 site/_site/
@@ -11,5 +16,7 @@ site/_site/
 o/
 *.zip
 gem.rb
+gemtest.rb
+
 
 

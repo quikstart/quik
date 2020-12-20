@@ -4,13 +4,14 @@ module Quik
 
 class Package
 
-  def initialize( key )   ## e.g. rubyref/gems
-    if key.index( '/' ).nil?  ## if just 'gems' etc; assumbe rubyref "standard" github org
-      @key = "rubyref/#{key}"
+  def initialize( key )   ## e.g. quikstart/gems
+    if key.index( '/' ).nil?  ## if just 'gems' etc; assumbe quikstart "standard" github org
+      @key = "quikstart/#{key}"
     else
       @key = key   # use as is e.g. seattlerb/hoe etc.
     end
   end
+
 
   def remote_zip_url # remote zip url
     "https://github.com/#{@key}/archive/master.zip"
@@ -75,7 +76,7 @@ private
     # e.g
     # !/starter-gh-pages/_layouts/ becomes
     # !/_layouts/ etc.
-    
+
     ##
     ## note:
     ##  skip all files in "root" folder

@@ -19,7 +19,7 @@ class Builder
   include Wizard   ## mixin helpers for say, ask, yes?, no?, select, etc.
 
   def initialize( opts={} )
-    puts "starting new Quik script #{opts.inspect}; lets go"
+    puts "==> starting new Quik script with options #{opts.inspect}; lets go"
 
     @test       = opts[:dry_run] || opts[:test] || false
     @output_dir = opts[:o] || '.'
@@ -37,7 +37,7 @@ class Builder
   end
 
   def install_template( name, opts= {} )
-    puts "  handle install_template #{name}, #{opts.inspect}"
+    puts "==> handle install_template >#{name}< with options #{opts.inspect}"
 
     ## note for now assume name is key
     ##   e.g. always downcase (e.g. Gem => gem)
@@ -56,7 +56,7 @@ class Builder
 
 
   def config( opts={} )
-    puts "  handle config block"
+    puts "==> handle config block"
     c = OpenConfig.new
     yield( c )
     ## pp c

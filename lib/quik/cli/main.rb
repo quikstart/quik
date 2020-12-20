@@ -1,7 +1,6 @@
-# encoding: utf-8
-
-### NOTE: wrap gli config into a class
-##  see github.com/davetron5000/gli/issues/153
+################
+## NOTE: wrap gli config into a class
+##        see github.com/davetron5000/gli/issues/153
 
 module Quik
 
@@ -15,6 +14,7 @@ class Tool
     Toolii.run( args )
   end
 end
+
 
 ## NOTE: gli added function are class methods (thus, wrap class Toolii in Tool for now)
 
@@ -47,11 +47,12 @@ desc '(Debug) Dry run; run script in simulation for testing'
 switch [:test, :dry_run], negatable: false
 
 
+
 def self.fetch_catalog
   ## scripts_dir = "#{Quik.root}/test/data"
   ## catalog    = Catalog.new( "#{scripts_dir}/scripts.yml" )
 
-  url = "https://github.com/quikstart/scripts/raw/master/scripts.yml"
+  url = QUIK_SCRIPTS_URL
 
   puts "GET #{url}".bold.green   ## output network access in green bold
 
@@ -60,18 +61,50 @@ def self.fetch_catalog
 end
 
 
-def self.fetch_script( name )
+def self.fetch_script( name_or_path )
 
   ## first try local version in working folder
 
   text = ''
-  local_script = "./#{name}.rb"
-  if File.exist?( local_script )
-    text = File.open( local_script, 'r:utf-8' ) { |f| f.read }
-  else  ## fetch remote script
-    url = "https://github.com/quikstart/scripts/raw/master/#{name}.rb"
-    ## assume utf8 text encoding for now
 
+  extname = File.extname( name_or_path )
+
+
+  ## try local first
+  ##   todo/fix:  check in ~/.quik/ dir too?
+
+  path =  if extname == '.rb' && File.exist?( name_or_path )
+            name_or_path
+          elsif extname == '' && File.exist?( "#{name_or_path}.rb" )
+            "#{name_or_path}.rb"
+          elsif extname == '' && File.exist?( "~/.quik/#{name_or_path}.rb" )
+            "~/.quik/#{name_or_path}.rb"   ## todo/check - if (~) shortcut works in windows -too?
+          else
+            nil
+          end
+
+  if path
+    text = File.open( path, 'r:utf-8' ) { |f| f.read }
+  else  ## try fetch remote script
+
+    url = nil
+
+    if name_or_path.index( '/' ).nil?   ## assume short-cut name if no (/) in name
+        ## do a lookup from catalog!!!
+        catalog = fetch_catalog
+        rec = catalog.find( name_or_path )
+        url = rec['script']  if rec
+
+        if url.nil?
+            puts "!! ERROR - sorry no wizard script found / available for name >#{name_or_path}<"
+            exit 1
+        end
+    else
+        ## assume custom github url shortcut
+        url = "https://github.com/#{name_or_path}/raw/master/quik.rb"
+    end
+
+    ## assume utf8 text encoding for now
     puts "GET #{url}".bold.green   ## output network access in green bold
 
     worker = Fetcher::Worker.new

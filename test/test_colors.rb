@@ -26,7 +26,7 @@ class TestColors < MiniTest::Test
 
     assert true  ## if we get here; everything is ok
   end
-  
+
   def test_codes
     assert_equal "\e[31mred\e[0m",                 "red".red
     assert_equal "\e[34m\e[31mblue\e[0m\e[0m",     "blue".red.blue

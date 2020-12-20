@@ -150,8 +150,8 @@ class Merger
            end
         else
            puts "  *** update file #{node} (#{relative_dir}) in (#{dest_root})"
-           File.open( dest_path, 'w' ) do |f|
-             f.write new_text
+           File.open( dest_path, 'w:utf-8' ) do |f|
+             f.write( new_text )
            end
         end
       end
