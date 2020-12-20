@@ -107,12 +107,8 @@ folder.
 
 **More Quick Starter Wizard Scripts**
 
-For more ruby quick starter scripts, see the [Scripts](https://github.com/quikstart/scripts)
+For more ruby quick starter scripts, see the [Quik Scripts](https://github.com/quikstart/scripts)
 catalog / directory.
-
-For static website (e.g. jekyll) quick starter scripts, see the  [Mr. Hyde's Scripts](https://github.com/mrhydescripts/scripts) catalog / directory.
-
-
 
 
 ## Install
